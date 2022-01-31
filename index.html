@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div x-data="pricer" class="grid">
+    <template x-for="package in packages">
+      <div class="grid__item">
+        <img class="grid__image" :src="package.img" alt="package.name">
+        <input @keyup.enter="setBase($el.value,package.floz)" @blur="setBase($el.value,package.floz);" :value="priced(base * package.floz)" class="grid__input" type="text">
+        <p class="grid__label" x-text="package.name + ' ' + package.name2"></p>
+      </div>
+    </template>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

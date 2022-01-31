@@ -17,7 +17,7 @@
   <div x-data="pricer" class="grid">
     <template x-for="package in packages">
       <div class="grid__item">
-        <img class="grid__image" :src="package.img" alt="package.name">
+        <img class="grid__image"  :src="package.img" alt="package.name">
         <input @keyup.enter="setBase($el.value,package.floz)" @blur="setBase($el.value,package.floz);" :value="priced(base * package.floz)" class="grid__input" type="text">
         <p class="grid__label" x-text="package.name + ' ' + package.name2"></p>
       </div>
